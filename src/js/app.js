@@ -12,23 +12,17 @@ class App extends React.Component {
         this.changeTitle = this.changeTitle.bind(this)
 
     }
-    changeTitle() {
-        setTimeout(function () {
-            console.log('vao')
-            this.state.title = 'Thay đổi header'
-            this.setState(this.state)
-        }.bind(this), 1000);
+    changeTitle(title) {
 
-
+        this.state.title = title
+        this.setState(this.state)
     }
     render() {
 
         return (
 
             <div>
-                <button onClick={this.changeTitle}>Click</button>
-                <Header title={this.state.title} />
-                {this.state.name}
+                <Header changeTitle={this.changeTitle} title={this.state.title} />
                 <Footer />
             </div>
         );
